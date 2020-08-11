@@ -5,10 +5,6 @@ Returns: an integer
 
 
 def single_number(arr):
-    # Your code here
-    # since there is only one number that shows once
-    # we can loop over the list, and check each value to see
-    # if it's not repeated.
     for i in range(len(arr)):
         count = 0
         for j in range(len(arr)):
