@@ -5,9 +5,9 @@ Returns: a List of integers
 
 
 def moving_zeroes(arr):
-    # iterate over the array
-    # if 0 is found, shift all numbers to the left
-    # move the 0 to the end of the array
+    # iterate over the array starting from the end
+    # if value is 0, move it to the end and
+    # shift all the other values to the left
     for i in range(len(arr) - 1, -1, -1):
         if arr[i] == 0:
             j = i
