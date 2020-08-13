@@ -1,7 +1,6 @@
 import unittest
 import random
 from single_number import single_number
-import time
 
 
 class Test(unittest.TestCase):
@@ -16,10 +15,7 @@ class Test(unittest.TestCase):
         rand_index = random.randint(0, len(arr))
         num = arr.pop(rand_index)
 
-        start = time.time()
-
         self.assertEqual(single_number(arr), num)
-        print(f"it took: {time.time() - start} seconds.")
 
 
 if __name__ == "__main__":
