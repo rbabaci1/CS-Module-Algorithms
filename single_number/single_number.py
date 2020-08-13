@@ -5,13 +5,14 @@ Returns: an integer
 
 
 def single_number(arr):
+    values = {}
     for i in range(len(arr)):
-        count = 0
-        for j in range(len(arr)):
-            if arr[i] == arr[j]:
-                count += 1
-        if count == 1:
-            return arr[i]
+        if arr[i] not in values:
+            values[arr[i]] = arr[i]
+        else:
+            del values[arr[i]]
+
+    return next(iter(values))
 
 
 if __name__ == "__main__":

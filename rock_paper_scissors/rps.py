@@ -5,21 +5,19 @@ import sys
 
 def rock_paper_scissors(n):
     options = ["rock", "paper", "scissors"]
+    # possible_plays = [["rock"], ["paper"], ["scissors"]]
+    possible_plays = [
+        ["rock", "rock"],
+        ["rock", "paper"],
+        ["rock", "scissors"],
+        ["paper", "rock"],
+        ["paper", "paper"],
+        ["paper", "scissors"],
+        ["scissors", "rock"],
+        ["scissors", "paper"],
+        ["scissors", "scissors"],
+    ]
     result = []
-
-    if n == 0:
-        return [[]]
-    elif n == 1:
-        return [["rock"], ["paper"], ["scissors"]]
-    else:
-        # the length of the result will be always 3^n
-        # each sub array will always have length of n
-        for i in range(pow(3, n)):
-            sub = []
-            for j in range(n):
-                pass
-
-    return result
 
 
 if __name__ == "__main__":
