@@ -5,16 +5,18 @@ Returns: a List of integers
 
 
 def moving_zeroes(arr):
-    # iterate over the array starting from the end
-    # if value is 0, move it to the end and
-    # shift all the other values to the left
-    for i in range(len(arr) - 1, -1, -1):
-        if arr[i] == 0:
-            j = i
-            while j < len(arr) - 1:
-                arr[j] = arr[j + 1]
-                j += 1
-            arr[j] = 0
+    # iterate over the array and keep a pointer to the
+    # location to insert a none zero value
+    # move all the none zero values to the beginning of the array
+    # when done, replace all the rest starting at the pointer location with 0's
+
+    update_at = 0
+    for i in range(len(arr)):
+        if arr[i] != 0:
+            arr[update_at] = arr[i]
+            update_at += 1
+    for j in range(update_at, len(arr)):
+        arr[j] = 0
     return arr
 
 
