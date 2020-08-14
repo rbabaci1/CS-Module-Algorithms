@@ -15,6 +15,9 @@ def single_number(arr):
     return next(iter(s))
 
 
+# 1- The runtime complexity is O(n)
+# 2- The space complexity is O(n 1/2) --> O(n)
+
 if __name__ == "__main__":
     # Use the main function to test your implementation
     arr = [1, 1, 4, 4, 5, 5, 3, 3, 9, 0, 0]
