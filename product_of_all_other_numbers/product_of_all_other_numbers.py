@@ -5,22 +5,24 @@ Returns: a List of integers
 
 
 def product_of_all_other_numbers(arr):
-    # loop over the array starting from index 0 always
-    # computing the product of all the values excluding the one
-    # at the current index, then append the result to the products array
-    products = []
+    products = [1 for _ in arr]
+    temp = 1
+
     for i in range(len(arr)):
-        result = 1
-        for j in range(len(arr)):
-            if j != i:
-                result *= arr[j]
-        products.append(result)
+        products[i] = temp
+        temp *= arr[i]
+
+    temp = 1
+    for j in range(len(products) - 1, -1, -1):
+        products[j] *= temp
+        temp *= arr[j]
     return products
 
 
 if __name__ == "__main__":
+    import time
+
     # Use the main function to test your implementation
-    # arr = [1, 2, 3, 4, 5]
     arr = [
         2,
         6,
@@ -73,8 +75,11 @@ if __name__ == "__main__":
         7,
         8,
     ]
+    arr = [1, 7, 3, 4]
+
+    start = time.time()
 
     print(
         f"Output of product_of_all_other_numbers: {product_of_all_other_numbers(arr)}"
     )
-
+    print(f"it took: {time.time() - start} seconds.")
