@@ -5,22 +5,23 @@ Returns: a List of integers
 
 
 def product_of_all_other_numbers(arr):
+    if len(arr) <= 1:
+        return
     products = [1 for _ in arr]
-    temp = 1
-
+    start = 1
     for i in range(len(arr)):
-        products[i] = temp
-        temp *= arr[i]
+        products[i] = start
+        start *= arr[i]
 
-    temp = 1
-    for j in range(len(products) - 1, -1, -1):
-        products[j] *= temp
-        temp *= arr[j]
+    start = 1
+    for j in range(i, -1, -1):
+        products[j] *= start
+        start *= arr[j]
+
     return products
 
 
 if __name__ == "__main__":
-    import time
 
     # Use the main function to test your implementation
     arr = [
@@ -75,11 +76,7 @@ if __name__ == "__main__":
         7,
         8,
     ]
-    arr = [1, 7, 3, 4]
-
-    start = time.time()
 
     print(
         f"Output of product_of_all_other_numbers: {product_of_all_other_numbers(arr)}"
     )
-    print(f"it took: {time.time() - start} seconds.")
