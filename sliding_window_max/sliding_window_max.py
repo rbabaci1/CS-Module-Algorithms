@@ -27,8 +27,8 @@ def sliding_window_max(arr, k):
         while Q and arr[i] >= arr[Q[-1]]:
             Q.pop()
         Q.append(i)
-    result.append(arr[Q[0]])
-    return result
+
+    return result + [arr[Q[0]]]
 
 
 if __name__ == "__main__":
