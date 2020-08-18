@@ -11,7 +11,6 @@ def single_number(arr):
             s.add(value)
         else:
             s.remove(value)
-
     return next(iter(s))
 
 
