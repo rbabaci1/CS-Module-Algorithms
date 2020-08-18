@@ -9,25 +9,23 @@ def sliding_window_max(arr, k):
     # Create a deque to store k elements.
     Q = deque()
     result = []
-
     # Run a loop and insert first k elements in the deque. While inserting the element if the element at the back of the queue is smaller than the current element remove all those elements and then insert the element.
     for i in range(k):
         while Q and arr[i] >= arr[Q[-1]]:
             Q.pop()
         Q.append(i)
-
     # Now, run a loop from k to end of the array.
-    for i in range(k, len(arr)):
+    for j in range(k, len(arr)):
+        # the first item in the queue is always the largest
         result.append(arr[Q[0]])
         # Remove the element from the front of the queue if they are out of the current window.
-        while Q and Q[0] <= i - k:
+        while Q and Q[0] <= j - k:
             Q.popleft()
 
         # Insert the next element in the deque. While inserting the element if the element at the back of the queue is smaller than the current element remove all those elements and then insert the element.
-        while Q and arr[i] >= arr[Q[-1]]:
+        while Q and arr[j] >= arr[Q[-1]]:
             Q.pop()
-        Q.append(i)
-
+        Q.append(j)
     return result + [arr[Q[0]]]
 
 
