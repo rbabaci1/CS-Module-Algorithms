@@ -1,14 +1,24 @@
-'''
+"""
 Input: a List of integers where every int except one shows up twice
 Returns: an integer
-'''
+"""
+
+
 def single_number(arr):
-    # Your code here
+    s = set()
+    for value in arr:
+        if value not in s:
+            s.add(value)
+        else:
+            s.remove(value)
 
-    pass
+    return next(iter(s))
 
 
-if __name__ == '__main__':
+# 1- The runtime complexity is O(n)
+# 2- The space complexity is O(n 1/2) --> O(n)
+
+if __name__ == "__main__":
     # Use the main function to test your implementation
     arr = [1, 1, 4, 4, 5, 5, 3, 3, 9, 0, 0]
 
