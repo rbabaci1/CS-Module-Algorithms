@@ -9,13 +9,13 @@ def rock_paper_scissors(n):
 
     def play(rounds, played=[]):
         if rounds == 0:
-            return results.append(played)
+            results.append(played)
         else:
             for i in range(3):
                 play(rounds - 1, played + [possible_plays[i]])
+        return results
 
-    play(n)
-    return results
+    return play(n)
 
 
 if __name__ == "__main__":
