@@ -4,20 +4,18 @@ import sys
 
 
 def rock_paper_scissors(n):
-    options = ["rock", "paper", "scissors"]
-    # possible_plays = [["rock"], ["paper"], ["scissors"]]
-    possible_plays = [
-        ["rock", "rock"],
-        ["rock", "paper"],
-        ["rock", "scissors"],
-        ["paper", "rock"],
-        ["paper", "paper"],
-        ["paper", "scissors"],
-        ["scissors", "rock"],
-        ["scissors", "paper"],
-        ["scissors", "scissors"],
-    ]
-    result = []
+    possible_plays = ["rock", "paper", "scissors"]
+    results = []
+
+    def play(rounds, played=[]):
+        if rounds == 0:
+            return results.append(played)
+        else:
+            for i in range(3):
+                play(rounds - 1, played + [possible_plays[i]])
+
+    play(n)
+    return results
 
 
 if __name__ == "__main__":
