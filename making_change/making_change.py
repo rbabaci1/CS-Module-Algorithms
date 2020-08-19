@@ -18,8 +18,10 @@ def making_change(amount, denominations):
         for j in range(1, len(combinations)):
             if j >= current_coin:
                 combinations[j] += combinations[j - current_coin]
-    # the last combination would the highest and the number of ways to make change
-    return combinations[-1]
+    # now each amount in the array has a combination which is the number of ways
+    # to make change for it, and each amount is an index in the array
+    # so to get the number of ways for amount, we simpley access the index [amount]
+    return combinations[amount]
 
 
 if __name__ == "__main__":
