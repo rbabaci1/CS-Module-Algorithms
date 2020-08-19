@@ -4,14 +4,21 @@ import sys
 
 
 def making_change(amount, denominations):
+    # create an array of length amount + 1
+    # each index will represent an amount
     combinations = [0 for _ in range(amount + 1)]
+    # for the amount 0, there's only one way to make change
     combinations[0] = 1
 
     for i in range(len(denominations)):
         current_coin = denominations[i]
+        # for each coin in the denominations, we check to see
+        # if the current amount i greater or equal to the coin
+        # which means we can use the previous combination to get the current one
         for j in range(1, len(combinations)):
             if j >= current_coin:
                 combinations[j] += combinations[j - current_coin]
+    # the last combination would the highest and the number of ways to make change
     return combinations[-1]
 
 
